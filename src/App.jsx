@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import Services from "./components/Services";
-import Products from "./components/Products";
+// import Products from "./components/Products";
 import Team from "./components/Team";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -15,10 +15,10 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
-      <Team />
+      {/* <Team /> */}
       <Stats />
       <Services />
-      <Products />
+      {/* <Products /> */}
       <HorizontalParallax />
       <Team />
       <CTA />

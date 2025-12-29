@@ -55,8 +55,33 @@ export default function HorizontalParallax() {
   const items = useMemo(() => Array.from({ length: 6 }).map((_, i) => i), [])
 
   return (
-    <section id="horizontal" ref={sectionRef} className="relative h-[280vh] bg-slate-950">
+    <section id="horizontal" ref={sectionRef} className="relative h-[280vh] bg-black">
       <div className="sticky top-0 h-screen overflow-hidden border-t border-slate-800">
+        <div className="text-center max-w-2xl mx-auto ">
+          <p className="text-xs tracking-widest text-gray-400 mb-3">
+            OUR PROJECTS
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+            Products we've built & shipped
+          </h2>
+          <p className="mt-4 text-sm text-gray-400">
+            A snapshot of the ideas we've turned into real products — from
+            wearables to agriculture platforms and creator tools.
+          </p>
+
+          {/* Filters */}
+          <div className="flex justify-center gap-2 mt-6">
+            <span className="px-4 py-1.5 text-xs rounded-full bg-yellow-400 text-black">
+              All
+            </span>
+            <span className="px-4 py-1.5 text-xs rounded-full border border-white/10 text-gray-300">
+              Client launches
+            </span>
+            <span className="px-4 py-1.5 text-xs rounded-full border border-white/10 text-gray-300">
+              Buildbot products
+            </span>
+          </div>
+        </div>
         <Parallax translateX={["0px", (inView ? endX : "0px")]} startScroll={startScroll} endScroll={endScroll} className="h-full">
           <div ref={trackRef} className="h-full flex items-center gap-8 px-12" style={{ width: '200vw' }}>
             {items.map((i) => (
@@ -74,21 +99,14 @@ export default function HorizontalParallax() {
 }
 
 function Panel({ index }) {
-  const hues = [260, 150, 330, 200, 120, 20]
-  const hue = hues[index % hues.length]
   return (
-    <div className="shrink-0 w-[60vw] max-w-[720px] h-[60vh] rounded-3xl border border-slate-800 bg-slate-900/60 p-8 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-25"
-           style={{
-             background: `radial-gradient(600px 200px at 30% 20%, hsl(${hue} 85% 60% / 0.30), transparent 60%),
-                          radial-gradient(400px 200px at 80% 60%, hsl(${(hue+80)%360} 85% 65% / 0.20), transparent 60%)`
-           }} />
-      <div className="relative z-10 h-full flex flex-col justify-between">
+    <div className="shrink-0 w-[60vw] max-w-[720px] h-[60vh] rounded-3xl border border-white/20 bg-black p-8 relative">
+      <div className="h-full flex flex-col justify-between">
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-2">Showcase {index + 1}</h3>
-          <p className="text-slate-300">Smooth horizontal parallax track powered by your vertical scroll.</p>
+          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">Showcase {index + 1}</h3>
+          <p className="text-gray-300">Smooth horizontal parallax track powered by your vertical scroll.</p>
         </div>
-        <div className="text-slate-400 text-sm">Panels use neutral styling to match your theme.</div>
+        <div className="text-gray-400 text-sm">Panels use neutral styling to match your theme.</div>
       </div>
     </div>
   )
