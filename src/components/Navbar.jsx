@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import { Circle, ArrowRight } from "lucide-react";
+import {  ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -10,10 +10,11 @@ export default function Navbar() {
           <a href="#home" className="text-white text-lg font-semibold tracking-wide">
             Buildbot
           </a>
-          <div className="flex gap-1 text-yellow-400">
-            <Circle className="w-3 h-3" />
-            <Circle className="w-3 h-3" />
-            <Circle className="w-3 h-3" />
+          <div className="flex gap-1 text-yellow-400"> <span className="flex gap-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+              </span>
           </div>
         </div>
 
