@@ -53,12 +53,12 @@ export default function Services() {
           </p>
           </Reveal>
           <Reveal delay={80} y={10}>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white">
             We design, build, and operate products end-to-end
           </h2>
           </Reveal>
           <Reveal delay={140} y={12}>
-          <p className="mt-4 text-sm text-gray-400">
+          <p className="mt-4 text-xs text-gray-400">
             End-to-end product delivery from early discovery through launch and
             long-term support.
           </p>
@@ -66,16 +66,19 @@ export default function Services() {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
           {services.map((service, i) => (
             <Reveal y={14} delay={i * 60}>
             <div
               key={i}
-              className="relative group rounded-xl border border-white/10 bg-white/5 p-5 hover:border-white/20 transition overflow-hidden"
+              className="relative group w-full max-w-xs rounded-xl border border-white/10 bg-white/5 p-3 hover:border-white/20 transition overflow-hidden ring-1 ring-transparent group-hover:ring-yellow-400/40 hover:shadow-[0_0_40px_rgba(251,191,36,0.25)]"
             >
               <span className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+                <span className="pointer-events-none absolute -inset-8 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(251,191,36,0.15),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden />
               {/* Light gradient overlay */}
               <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" aria-hidden />
+              {/* Inner glow */}
+              <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[inset_0_0_30px_rgba(251,191,36,0.22)]" aria-hidden />
               {/* Icon */}
               <div
                 className={`inline-flex items-center justify-center w-9 h-9 rounded-md mb-4 ${service.color}`}
@@ -84,10 +87,10 @@ export default function Services() {
               </div>
 
               {/* Content */}
-              <h3 className="text-sm font-semibold text-white">
+              <h3 className="text-xs font-semibold text-white">
                 {service.title}
               </h3>
-              <p className="mt-2 text-xs text-gray-400 leading-relaxed">
+              <p className="mt-2 text-[11px] text-gray-400 leading-relaxed">
                 {service.desc}
               </p>
             </div>
