@@ -1,5 +1,6 @@
 import Reveal from './Reveal'
 
+
 export default function Insights() {
   const posts = [
     {
@@ -7,21 +8,21 @@ export default function Insights() {
       title: "From MVP to durable product in 12 months.",
       description:
         "How we structure discovery, launch, and iteration when speed and quality both matter.",
-      image: "/insights-1.jpg",
+      image: "/insite1.jpg",
     },
     {
       category: "AI",
       title: "Designing AI features that feel native, not bolted on.",
       description:
         "Patterns we’re seeing across successful AI products — and red flags to avoid.",
-      image: "/insights-2.jpg",
+      image: "/sample.jpg",
     },
     {
       category: "GROWTH",
       title: "Using data & experimentation to tune SaaS pricing.",
       description:
         "A playbook for aligning monetization with customer value using real usage data.",
-      image: "/insights-3.jpg",
+      image: "/sample.jpg", 
     },
   ];
 
@@ -57,7 +58,7 @@ export default function Insights() {
             {/* Image */}
             <div className="aspect-[4/3] overflow-hidden">
               <img
-                src="/sample.jpg"
+                src={post.image}
                 alt={post.title}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

@@ -85,7 +85,7 @@ export default function CTA() {
   const daysArray = Array.from({ length: totalDays }, (_, i) => i + 1)
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-black via-neutral-900 to-neutral-800 px-6 py-24">
+    <section id="cta" className="relative overflow-hidden bg-gradient-to-br from-black via-neutral-900 to-neutral-800 px-6 py-24">
       {/* Header */}
       <div className="mx-auto max-w-6xl text-center">
         <p className="mb-3 text-xs tracking-widest text-neutral-400">

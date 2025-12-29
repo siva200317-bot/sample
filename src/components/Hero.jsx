@@ -1,6 +1,7 @@
 // src/components/Hero.jsx
 import { Parallax } from 'react-scroll-parallax'
 import Reveal from './Reveal'
+import { ArrowBigLeftIcon, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -31,15 +32,17 @@ export default function Hero() {
 
         {/* Actions */}
         <Reveal delay={220} y={14} className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <button className="flex items-center justify-center gap-2 bg-yellow-400 text-black px-7 py-3 rounded-full text-sm font-medium hover:bg-yellow-300 trans-300 hover:lift tap:shrink">
+          <a href="#cta" className="flex items-center justify-center gap-2 bg-yellow-400 text-black px-7 py-3 rounded-full text-sm font-medium hover:bg-yellow-300 trans-300 hover:lift tap:shrink" role="button">
             Start your project
-            <span>→</span>
-          </button>
+              <ArrowRight></ArrowRight> 
+            </a>
+            
+          
 
-          <button className="flex items-center justify-center gap-2 border border-white/20 text-white px-7 py-3 rounded-full text-sm hover:border-white/40 trans-300 hover:lift tap:shrink">
+          <a href="#insights" className="flex items-center justify-center gap-2 border border-white/20 text-white px-7 py-3 rounded-full text-sm hover:border-white/40 trans-300 hover:lift tap:shrink" role="button">
             View our work
             <span>▷</span>
-          </button>
+          </a>
         </Reveal>
       </div>
     </section>
