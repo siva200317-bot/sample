@@ -1,9 +1,9 @@
 // src/components/Navbar.jsx
 import {  ArrowRight } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({ onContactClick }) {
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-6 z-50 flex justify-center">
+    <div className="fixed inset-x-0 top-6 z-50 flex justify-center">
       <nav className="pointer-events-auto flex items-center justify-between w-[90%] max-w-6xl px-8 py-4 rounded-full bg-black/90 backdrop-blur-md shadow-lg">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -28,7 +28,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA Button */}
-        <button className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-300 transition">
+        <button onClick={onContactClick} className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-yellow-400">
           Contact us
           <ArrowRight className="w-4 h-4" />
         </button>

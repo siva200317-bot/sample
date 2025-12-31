@@ -8,7 +8,7 @@ export default function Insights() {
       title: "From MVP to durable product in 12 months.",
       description:
         "How we structure discovery, launch, and iteration when speed and quality both matter.",
-      image: "/insite1.jpg",
+      image: "/insite1.png",
     },
     {
       category: "AI",
