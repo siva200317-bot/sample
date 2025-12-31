@@ -67,7 +67,7 @@ export default function Testimonials() {
           {/* Bottom right */}
           <Reveal y={16} delay={200} className="overflow-hidden rounded-2xl">
             <img
-              src="/sample.jpg"
+              src="/group2.png"
               alt="Team planning session"
               className="h-full w-full object-cover trans-500 hover:scale-[1.05]"
               loading="lazy"
