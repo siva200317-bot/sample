@@ -22,10 +22,11 @@ export default function Navbar({ onContactClick }) {
         {/* Navigation */}
         <ul className="hidden md:flex items-center gap-8 text-sm text-gray-300">
           <li className="hover:text-white"><Link to="/#services" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Services</Link></li>
-          <li className="hover:text-white"><Link to="/#horizontal" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Case Studies</Link></li>
+          <li className="hover:text-white"><Link to="/#horizontal" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Products</Link></li>
           <li className="hover:text-white"><Link to="/#leadership" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Leadership</Link></li>
-          <li className="hover:text-white"><Link to="/#insights" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Insights</Link></li>
           <li className="hover:text-white"><Link to="/careers" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Careers</Link></li>
+
+          <li className="hover:text-white"><Link to="/#insights" className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-sm">Insights</Link></li>
         </ul>
 
         {/* CTA Button */}

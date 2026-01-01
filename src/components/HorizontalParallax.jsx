@@ -54,7 +54,7 @@ export default function HorizontalParallax() {
 
   const products = useMemo(() => [
     { title: 'Agriport', image: 'products/Agriport.png', desc: 'IoT-driven agriculture analytics' },
-    { title: 'Aqualens', image: 'products/Aqua.png', desc: 'Health insights from wearables' },
+    { title: 'Aqualens', image: 'products/Aqua.png', desc: 'An intelligent, IoT-enabled solution that allows users to monitor, control and optimize their water treatment and distribution process in real time. Ensuring efficient plant operations and sustainable resource…' },
     { title: 'Civic Pulse', image: 'products/Civic.png', desc: 'Monetization and publishing tools' },
     { title: 'Cloud Doctor', image: 'products/Cloud.png', desc: 'Real-time ops and reporting' },
     { title: 'CVM Beach Productions', image: 'products/cvm.png', desc: 'Automations and copilots' },
@@ -69,9 +69,7 @@ export default function HorizontalParallax() {
     <section id="horizontal" ref={sectionRef} className="relative h-[220vh] bg-black ">
       <div className="sticky top-0 h-screen overflow-hidden bg-black border-t border-white/10">
         <div className="text-center max-w-2xl mx-auto pt-24 sm:pt-28">
-          <p className="text-xs tracking-widest text-gray-400 mb-2">
-            OUR PROJECTS
-          </p>
+        
           <h2 className="text-3xl md:text-4xl font-semibold text-white">
             Products we've built & shipped
           </h2>
@@ -114,17 +112,17 @@ Products
 
 function Panel({ index, product }) {
   return (
-    <div className="shrink-0 w-[38vw] max-w-[480px] h-[50vh] rounded-2xl border border-white/20 bg-black p-6 relative">
+    <div className="shrink-0 w-[30vw] max-w-[480px] h-[65vh] rounded-2xl border border-white/20 bg-black p-6 relative overflow-hidden">
       
       <div className="h-full flex flex-col justify-between">
         <div>
           <div className="relative w-full h-40 mb-4 overflow-hidden rounded-xl bg-white/5 border border-white/10">
             <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">{product.title}</h3>
-          <p className="text-gray-300">{product.desc}</p>
+          <h3 className="text-l md:text-xl font-bold mb-2 text-white">{product.title}</h3>
+          <p className="text-gray-300 text-xs md:text-sm break-words">{product.desc}</p>
         </div>
-        <div className="text-gray-400 text-sm">Panel {index + 1} • Built by Buildbot</div>
+        <div className="text-gray-400 text-sm truncate">Panel {index + 1} • Built by Buildbot</div>
       </div>
     </div>
   )
