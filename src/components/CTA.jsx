@@ -1,5 +1,5 @@
 // Google Calendar Appointment Scheduling Link
-const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.app.google/NW4vEMHeTrEYjiEu6'
+const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.app.google/gXxb2LmdnZWrTJBL8'
 
 export default function CTA() {
 
