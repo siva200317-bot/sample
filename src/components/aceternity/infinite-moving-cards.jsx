@@ -112,7 +112,7 @@ export function InfiniteMovingCards({
         ))}
       </ul>
 
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
