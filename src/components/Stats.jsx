@@ -57,7 +57,7 @@ export default function Stats() {
           </div>
 
           {/* Outcome pill */}
-          <Reveal y={12} delay={380} className="mt-5 inline-flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-teal-400/30 bg-teal-400/10">
+          {/* <Reveal y={12} delay={380} className="mt-5 inline-flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-teal-400/30 bg-teal-400/10">
             <span className="text-[10px] font-semibold text-teal-400 tracking-wide">
               OUTCOME FIRST
             </span>
@@ -65,11 +65,11 @@ export default function Stats() {
               We measure success in shipped products, active users, and
               follow-on funding — not story decks.
             </p>
-          </Reveal>
+          </Reveal> */}
         </div>
 
         {/* RIGHT STATS */}
-        <div className="flex-1 flex flex-wrap justify-between gap-y-2 my-32">
+        <div className="flex-1 flex flex-wrap justify-between gap-y-2 my-10">
           {[
             {
               value: "50+",
@@ -97,14 +97,14 @@ export default function Stats() {
               key={i}
               y={16}
               delay={i * 80}
-              className="w-1/2 h-28 px-1 mb-1 box-border"
+              className="w-1/2 h-auto px-1 mb-1 box-border"
             >
               <div className={`h-full rounded-md p-3 border ${
                 item.highlight ? "border-accent/40 bg-accent/10" : "border-border bg-surface"
               }`}>
-                <h3 className="text-lg font-bold text-foreground leading-none">{item.value}</h3>
-                <p className="mt-0.5 text-[8px] tracking-wider text-muted-foreground">{item.title}</p>
-                <p className="mt-0.5 text-[10px] text-muted-foreground">{item.desc}</p>
+                <h3 className="text-lg font-bold text-yellow-400 leading-none ">{item.value}</h3>
+                <p className="mt-0.5 text-[10px] tracking-wider text-muted-foreground">{item.title}</p>
+                <p className="mt-0.5 text-[12px] text-muted-foreground">{item.desc}</p>
               </div>
             </Reveal>
           ))}

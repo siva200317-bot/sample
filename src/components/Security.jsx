@@ -39,7 +39,7 @@ export default function Security() {
       className="relative overflow-hidden bg-black px-6 py-32"
     >
       {/* Uniform section-wide gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-yellow-400/10 via-yellow-400/10 to-yellow-400/10" />
+      <div className="pointer-events-none absolute inset-0  from-yellow-400/10 via-yellow-400/10 to-yellow-400/10" />
 
       <div className="relative mx-auto max-w-6xl text-center">
         {/* Eyebrow */}

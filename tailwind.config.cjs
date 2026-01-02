@@ -33,6 +33,7 @@ module.exports = {
         },
       },
       animation: {
+        'meteor-effect': 'meteor 5s linear infinite',
         'meteor': 'meteor 5s linear infinite',
         'fade-in': 'fade-in 0.5s ease-out',
         'slide-up': 'slide-up 0.5s ease-out',
