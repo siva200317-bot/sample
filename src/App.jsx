@@ -1,5 +1,6 @@
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Modal from "./components/ui/Modal";
@@ -19,6 +20,8 @@ export default function App() {
           <Route path="careers" element={<Careers />} />
         </Route>
       </Routes>
+
+      <BackToTop />
     </>
   );
 }
