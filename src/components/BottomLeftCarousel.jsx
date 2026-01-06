@@ -67,7 +67,7 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
         onClick={(e) => onClick(e, current.href)}
         aria-label={`Open products section (currently: ${current.title})`}
         className="block rounded-xl border border-white/10 bg-black/80 backdrop-blur-md shadow-lg overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
-        style={{ width: 64, height: 64 }}
+        style={{ width: 140, height: 90 }}
       >
         <img
           key={current.id}
