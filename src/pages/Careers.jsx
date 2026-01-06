@@ -209,6 +209,7 @@ export default function Careers() {
         open={applyOpen}
         onClose={closeModal}
         title={''}
+        dark={true}
       >
         {showResultScreen ? (
           <div className="p-6 bg-gray-900 rounded-xl text-white">
@@ -397,6 +398,7 @@ export default function Careers() {
         open={viewOpen}
         onClose={closeViewModal}
         title=""
+        fullScreen={true}
       >
         <JobDetailsModal
           job={selectedViewJob}

@@ -32,34 +32,42 @@ export default function JobDetailsModal({ job, onApply, onClose }) {
             
             {/* Job Meta Info Pills */}
             <div className="flex flex-wrap gap-3 mb-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/30 border border-blue-500/30 text-sm">
-                <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                {job.Location}
-              </div>
+              {job.Location && (
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/30 border border-blue-500/30 text-sm">
+                  <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {job.Location}
+                </div>
+              )}
               
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 text-sm">
-                <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {job.EmploymentType} · {job.WorkMode}
-              </div>
+              {(job.EmploymentType || job.WorkMode) && (
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 text-sm">
+                  <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {[job.EmploymentType, job.WorkMode].filter(Boolean).join(' · ')}
+                </div>
+              )}
               
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-sm">
-                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                7+ years experience
-              </div>
+              {job.Experience && (
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-sm">
+                  <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {job.Experience}
+                </div>
+              )}
               
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-orange-900/30 border border-orange-500/30 text-sm">
-                <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                {job.Department}
-              </div>
+              {job.Department && (
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-orange-900/30 border border-orange-500/30 text-sm">
+                  <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  {job.Department}
+                </div>
+              )}
             </div>
           </div>
 
@@ -75,19 +83,16 @@ export default function JobDetailsModal({ job, onApply, onClose }) {
               </svg>
             </button>
             
-            <button className="px-6 py-3 rounded-lg border border-white/20 text-white font-medium hover:bg-white/5 transition-all duration-300 flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-              Save role for later
-            </button>
+           
             
-            <div className="mt-2 px-4 py-2 rounded-lg bg-yellow-900/20 border border-yellow-500/30 flex items-center gap-2 text-sm text-yellow-400">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Posted 3 days ago · High priority
-            </div>
+            {(job.PostedDate || job.Priority) && (
+              <div className="mt-2 px-4 py-2 rounded-lg bg-yellow-900/20 border border-yellow-500/30 flex items-center gap-2 text-sm text-yellow-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {[job.PostedDate, job.Priority].filter(Boolean).join(' · ')}
+              </div>
+            )}
           </div>
         </div>
 
@@ -96,77 +101,59 @@ export default function JobDetailsModal({ job, onApply, onClose }) {
           {/* Left Column - Job Details */}
           <div className="lg:col-span-2 space-y-8">
             {/* About the role */}
-            <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-bold mb-4">About the role</h2>
-              <p className="text-gray-300 leading-relaxed">
-                {job.Description || "As a Senior Product Engineer at Buildbot Technologies, you will design, build, and operate production-grade platforms that power products like AquaLens, Cloud Doctor, and our IoT Hub. You will work closely with product, design, and DevOps teams to ship reliable, scalable experiences for our global customers."}
-              </p>
-            </section>
+            {job.Description && (
+              <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
+                <h2 className="text-2xl font-bold mb-4">About the role</h2>
+                <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                  {job.Description}
+                </p>
+              </section>
+            )}
 
             {/* What you will work on */}
-            <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-bold mb-4">What you will work on</h2>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Own end-to-end delivery of product features across backend services and platform components.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Collaborate with product managers and designers to turn ideas into reliable, secure solutions.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Improve observability, performance, and reliability for large-scale, multi-tenant systems.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Mentor engineers and contribute to engineering best practices and technical direction.</span>
-                </li>
-              </ul>
-            </section>
+            {job.Responsibilities && (
+              <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
+                <h2 className="text-2xl font-bold mb-4">What you will work on</h2>
+                <ul className="space-y-3 text-gray-300">
+                  {job.Responsibilities.split('\n').filter(item => item.trim()).map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-yellow-400 mt-1">•</span>
+                      <span>{item.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
             {/* What we are looking for */}
-            <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-bold mb-4">What we are looking for</h2>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>7+ years of experience building and operating production systems in a product organization.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Strong experience with Node.js, Java, or similar backend languages and modern frameworks.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Hands-on exposure to cloud platforms (AWS preferred) and container orchestration (Kubernetes).</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-400 mt-1">•</span>
-                  <span>Comfortable working in hybrid teams and collaborating with stakeholders across functions.</span>
-                </li>
-              </ul>
-            </section>
+            {job.Requirements && (
+              <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
+                <h2 className="text-2xl font-bold mb-4">What we are looking for</h2>
+                <ul className="space-y-3 text-gray-300">
+                  {job.Requirements.split('\n').filter(item => item.trim()).map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-yellow-400 mt-1">•</span>
+                      <span>{item.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
             {/* Nice to have */}
-            <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-bold mb-4">Nice to have</h2>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-gray-500 mt-1">•</span>
-                  <span>Experience with IoT platforms, data streaming, or real-time monitoring systems.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gray-500 mt-1">•</span>
-                  <span>Background in building internal platforms or developer tools.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gray-500 mt-1">•</span>
-                  <span>Exposure to analytics tools such as Power BI or similar BI platforms.</span>
-                </li>
-              </ul>
-            </section>
+            {job.NiceToHave && (
+              <section className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border border-white/10 rounded-2xl p-6">
+                <h2 className="text-2xl font-bold mb-4">Nice to have</h2>
+                <ul className="space-y-3 text-gray-300">
+                  {job.NiceToHave.split('\n').filter(item => item.trim()).map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-gray-500 mt-1">•</span>
+                      <span>{item.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           {/* Right Column - Job Info Sidebar */}
@@ -189,12 +176,16 @@ export default function JobDetailsModal({ job, onApply, onClose }) {
               <div className="border-t border-white/10"></div>
 
               {/* Experience */}
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 mb-2">Experience</h3>
-                <p className="text-white">7+ years experience</p>
-              </div>
+              {job.Experience && (
+                <>
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-400 mb-2">Experience</h3>
+                    <p className="text-white">{job.Experience}</p>
+                  </div>
 
-              <div className="border-t border-white/10"></div>
+                  <div className="border-t border-white/10"></div>
+                </>
+              )}
 
               {/* Team */}
               <div>
@@ -205,13 +196,15 @@ export default function JobDetailsModal({ job, onApply, onClose }) {
               <div className="border-t border-white/10"></div>
 
               {/* Application status */}
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 mb-2">Application status</h3>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <p className="text-green-400 font-medium">Actively interviewing</p>
+              {job.Status && (
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-400 mb-2">Application status</h3>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <p className="text-green-400 font-medium">{job.Status}</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
