@@ -15,9 +15,9 @@ export default function Footer() {
             </div>
 
             <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
-              Not just about software & product development; we're your tech
+              Software Development & product development; we're your tech
               partners, crafting modern digital solutions for next-gen
-              excellence!
+              excellence!about
             </p>
 
             <div className="mt-6 flex gap-4 text-xs">
@@ -109,27 +109,15 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="mb-4 font-semibold text-white">Contact</h4>
-            <p className="mb-4">Slack & email support</p>
 
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/buildbot-technologies-private-limited/"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
               >
                 in
               </a>
-              <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-              >
-                x
-              </a>
-              <a
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-              >
-                ◎
-              </a>
+             
             </div>
           </div>
         </div>
@@ -142,16 +130,7 @@ export default function Footer() {
           <p>© 2026 Buildbot. All rights reserved.</p>
 
           <div className="flex items-center gap-4">
-            <span className="text-muted-foreground">Connect with us:</span>
-            <a href="#" className="hover:text-foreground transition">
-              f
-            </a>
-            <a href="#" className="hover:text-foreground transition">
-              ◎
-            </a>
-            <a href="#" className="hover:text-foreground transition">
-              in
-            </a>
+            
           </div>
         </div>
       </div>

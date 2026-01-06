@@ -22,7 +22,7 @@ export default function Careers() {
   })
 
   const webAppUrl =
-    'https://script.google.com/macros/s/AKfycbyk4gTgN0wmMno6h8lr_EHIVDFDEtIJAFRxVUZQR88sN4yA8akknfBg4XsdlJfQlRBM/exec'
+    'https://script.google.com/macros/s/AKfycbxoqd1fAn3jgLiAs24-FHPjCRGHUM2aK8gNfM7NbSGTzMxTTQYgkH7oje5reM7oPDgn/exec'
 
   // ===============================
   // FETCH JOBS
