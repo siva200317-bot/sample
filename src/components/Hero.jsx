@@ -3,6 +3,7 @@ import { Meteors } from '@/components/ui/meteors';
 import { MotionReveal as Reveal } from '@/components/aceternity/motion-reveal';
 import { ArrowBigRight, ArrowRight } from 'lucide-react';
 import BottomLeftCarousel from './BottomLeftCarousel';
+import { Spotlight } from './ui/Spotlight';
 
 export default function Hero() {
   return (
@@ -10,6 +11,12 @@ export default function Hero() {
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
         {/* Background Beams Effect */}
         {/* <BackgroundBeams className="absolute inset-0 pointer-events-none" /> */}
+     <Spotlight
+        className="-top-40 left-0 md:-top-20 md:left-60"
+        fill="white"
+      />
+
+
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           {/* Badge */}
@@ -37,7 +44,8 @@ export default function Hero() {
               Start your project
               <ArrowRight />
             </a>
-            <Meteors />
+            {/* <Meteors /> */}
+              
             <a href="#insights" className="flex items-center justify-center gap-2 border border-border text-foreground px-7 py-3 rounded-full text-sm hover:border-muted trans-300 hover:lift tap:shrink" role="button">
               View our work
               <ArrowBigRight />
