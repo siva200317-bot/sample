@@ -7,16 +7,13 @@ export default function Navbar({ onContactClick }) {
       <nav className="pointer-events-auto flex items-center justify-between w-[90%] max-w-6xl px-8 py-4 rounded-full bg-background/90 backdrop-blur-md shadow-lg border border-border">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Link to="/" className="text-foreground text-lg font-semibold tracking-wide">
-            Buildbot
+          <Link to="/" className="flex items-center gap-2">
+            <img 
+              src="/logo.png" 
+              alt="Buildbot Logo" 
+              className="h-8 w-auto object-contain"
+            />
           </Link>
-          <div className="flex gap-1 text-accent">
-            <span className="flex gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            </span>
-          </div>
         </div>
 
         {/* Navigation */}

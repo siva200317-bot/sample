@@ -7,12 +7,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 text-foreground text-xl font-semibold">
-              Buildbot
-              <span className="flex gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
+             <img 
+              src="/logo.png" 
+              alt="Buildbot Logo" 
+              className="h-8 w-auto object-contain"
+            />
             </div>
 
             <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
