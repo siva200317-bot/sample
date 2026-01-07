@@ -29,8 +29,7 @@ export default function TechStack() {
 
           <Reveal delay={60}>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              A modern stack behind every{" "}
-              <span className="text-muted-foreground">Build · Operate · Transfer</span>
+             A Modern Tech Stack Powers Every BOT
             </h2>
           </Reveal>
 

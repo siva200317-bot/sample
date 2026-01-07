@@ -74,7 +74,7 @@ export default function Security() {
         </Reveal>
 
         {/* Pills */}
-        <Reveal
+        {/* <Reveal
           delay={140}
           y={12}
           className="mt-10 flex flex-wrap justify-center gap-4"
@@ -89,10 +89,10 @@ export default function Security() {
               {p.label}
             </span>
           ))}
-        </Reveal>
+        </Reveal> */}
 
         {/* Stats */}
-        <Reveal
+        {/* <Reveal
           delay={180}
           y={12}
           className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-8"
@@ -107,15 +107,15 @@ export default function Security() {
               </p>
             </div>
           ))}
-        </Reveal>
+        </Reveal> */}
 
         {/* Trust line */}
-        <p className="mt-16 text-[11px] tracking-widest text-gray-500">
+        {/* <p className="mt-16 text-[11px] tracking-widest text-gray-500">
           TRUSTED BY TEAMS ACROSS PRODUCT, HEALTHCARE, FINANCE & ENTERPRISE TECH
-        </p>
+        </p> */}
 
         {/* Logos */}
-        <Reveal
+        {/* <Reveal
           delay={220}
           y={12}
           className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-4"
@@ -128,7 +128,7 @@ export default function Security() {
               {logo}
             </span>
           ))}
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   )

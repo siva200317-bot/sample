@@ -19,19 +19,19 @@ import { useEffect, useMemo, useState } from "react";
 export default function BottomLeftCarousel({ intervalMs = 2500 }) {
   const items = useMemo(
     () => [
-      { id: 1, title: "Showcase 1", image: "products/Agriport.png", href: "#horizontal" },
-      { id: 2, title: "Showcase 2", image: "products/Aqua.png", href: "#horizontal" },
-      { id: 3, title: "Showcase 3", image: "products/Civic.png", href: "#horizontal" },
+      { id: 1, title: "Showcase 1", image: "products/Agriport.png", href: "#products" },
+      { id: 2, title: "Showcase 2", image: "products/Aqua.png", href: "#products" },
+      { id: 3, title: "Showcase 3", image: "products/Civic.png", href: "#products" },
 
-      { id: 4, title: "Showcase 3", image: "products/Cloud.png", href: "#horizontal" },
+      { id: 4, title: "Showcase 3", image: "products/Cloud.png", href: "#products" },
 
-      { id: 5, title: "Showcase 3", image: "products/cvm.png", href: "#horizontal" },
+      { id: 5, title: "Showcase 3", image: "products/cvm.png", href: "#products" },
 
-      { id: 6, title: "Showcase 3", image: "products/Rubber.png", href: "#horizontal" },
+      { id: 6, title: "Showcase 3", image: "products/Rubber.png", href: "#products" },
 
-      { id: 7, title: "Showcase 3", image: "products/Spark.png", href: "#horizontal" },
+      { id: 7, title: "Showcase 3", image: "products/Spark.png", href: "#products" },
 
-      { id: 8, title: "Showcase 3", image: "products/St.png", href: "#horizontal" },
+      { id: 8, title: "Showcase 3", image: "products/St.png", href: "#products" },
     ],
     []
   );
@@ -50,10 +50,10 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
     return () => clearInterval(id);
   }, [intervalMs, items.length]);
 
-  // Hide carousel when HorizontalParallax section is in view
+  // Hide carousel when products section is in view
   useEffect(() => {
-    const horizontalSection = document.getElementById("horizontal");
-    if (!horizontalSection) return;
+    const productsSection = document.getElementById("products");
+    if (!productsSection) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -64,7 +64,7 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
       { threshold: 0.1 } // Hide when 10% of the section is visible
     );
 
-    observer.observe(horizontalSection);
+    observer.observe(productsSection);
 
     return () => observer.disconnect();
   }, []);

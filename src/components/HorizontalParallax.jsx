@@ -67,17 +67,17 @@ export default function HorizontalParallax() {
   ], [])
 
   return (
-    <section id="horizontal" ref={sectionRef} className="relative h-[200vh] bg-black">
+    <section id="products" ref={sectionRef} className="relative h-[200vh] bg-black">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden bg-black border-t border-white/10">
         <div className="text-center max-w-2xl mx-auto pb-8">
         
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+          {/* <h2 className="text-3xl md:text-4xl font-semibold text-white">
             Products we've built & shipped
           </h2>
           <p className="mt-4 text-sm text-gray-400">
             A snapshot of the ideas we've turned into real products — from
             wearables to agriculture platforms and creator tools.
-          </p>
+          </p> */}
 
           {/* Filters */}
           {/* <div className="flex justify-center gap-2 mt-2 mb-4">
@@ -107,39 +107,59 @@ export default function HorizontalParallax() {
 }
 
 function Panel({ index, product }) {
+  // Define background colors that rotate through cards
+  const bgColors = [
+    'bg-gray-100',    // Cream/beige
+    'bg-purple-300',  // Purple
+    'bg-yellow-300',  // Yellow
+    'bg-rose-200',    // Pink/rose
+    'bg-blue-200',    // Light blue
+    'bg-green-200',   // Light green
+    'bg-orange-200',  // Light orange
+    'bg-cyan-200'     // Light cyan
+  ];
+  
+  const bgColor = bgColors[index % bgColors.length];
+  
   return (
-    <div className="group shrink-0 w-[80vw] sm:w-[50vw] lg:w-[30vw] max-w-[480px] h-[20rem] rounded-2xl border border-white/20 bg-black p-4 md:p-6 relative overflow-hidden transition-all duration-500">
+    <div className={`group shrink-0 w-[80vw] sm:w-[50vw] lg:w-[35vw] max-w-[500px] h-[85vh] rounded-3xl ${bgColor} p-8 relative overflow-hidden transition-all duration-500`}>
       
-      {/* Dark gray backdrop that appears on hover */}
-      <div className="absolute inset-0 bg-gray-900/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+      {/* White overlay that appears on hover - covers entire card */}
+      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/90 transition-all duration-500 rounded-3xl pointer-events-none" />
       
-      {/* Main content - fades out completely on hover */}
-      <div className="h-full flex flex-col justify-between relative z-20 transition-all duration-500 group-hover:opacity-0">
-        <div>
-          <div className="relative w-full h-40 mb-4 overflow-hidden rounded-xl bg-white/5 border border-white/10">
-            <img 
-              src={product.image} 
-              alt={product.title} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            />
-          </div>
-          <h3 className="text-xl font-bold mb-2 text-white">{product.title}</h3>
-          {/* <p className="text-gray-300 text-xs md:text-sm line-clamp-4">
-            {product.desc}
-          </p> */}
-        </div>
-        <div className="text-gray-400 text-sm">
-          • Built by Buildbot
-        </div>
+      {/* Image container - floating mockup style with shadow */}
+      <div className="relative w-full h-[65%] mb-6 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-95 z-10">
+        <img 
+          src={product.image} 
+          alt={product.title} 
+          className="w-full h-full object-cover" 
+        />
       </div>
-
-      {/* Full description overlay on hover */}
-      <div className="absolute inset-0 p-8 flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-30 pointer-events-none">
-        <h3 className="text-2xl font-bold mb-4 text-white">{product.title}</h3>
-        <p className="text-gray-200 text-sm md:text-base leading-relaxed">
-          {product.desc}
-        </p>
-       
+      
+      {/* Text content at bottom */}
+      <div className="relative z-10 transition-transform duration-500 group-hover:-translate-y-4">
+        <h3 className="text-4xl md:text-5xl font-bold text-black mb-3">
+          {product.title}
+        </h3>
+        
+        {/* Category tags - visible by default, fade out on hover */}
+        <div className="text-black/60 text-sm transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:h-0 overflow-hidden">
+          Product Design • Web Design
+        </div>
+        
+        {/* Description and button - appears on hover below the title */}
+        <div className="transition-all duration-300 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-40 group-hover:mt-2">
+          <p className="text-black/80 text-base mb-4 leading-relaxed">
+            {product.desc}
+          </p>
+          <button 
+            type="button"
+            className="inline-flex items-center gap-2 text-black font-semibold hover:gap-3 transition-all bg-white px-4 py-2 rounded-lg shadow-sm"
+          >
+            Explore
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
     </div>
   )

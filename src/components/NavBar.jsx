@@ -16,7 +16,7 @@ export default function Navbar({ onContactClick }) {
     },
     {
       name: "Products",
-      link: "/#horizontal",
+      link: "/#products",
       icon: <Package className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
