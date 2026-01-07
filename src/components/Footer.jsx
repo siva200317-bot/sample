@@ -1,11 +1,11 @@
-import { Linkedin } from "lucide-react";
+import { Linkedin, Mail, PhoneCall } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-background px-6 pt-20 text-sm text-muted-foreground border-t border-border">
-      <div className="">
+      <div className="mx-auto max-w-7xl">
         {/* Top grid */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-5">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 text-foreground text-xl font-semibold">
@@ -15,18 +15,46 @@ export default function Footer() {
               className="h-8 w-auto object-contain"
             />
             </div>
-
-            <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
-              Software Development & product development; we're your tech
-              partners, crafting modern digital solutions for next-gen
-              excellence!
-            </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-
               Buildbot Technologies Private Limited <br />
               4th floor, Lalitha Nivas, Rd Number 2, Veterinary Colony, <br />
               Vijayawada, Andhra Pradesh 520008, India
             </p>
+            <div className="mt-1 space-y-3 text-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-accent"><PhoneCall size={16} /></span>
+                <a
+                  href="tel:+13153080901"
+                  className="hover:text-foreground transition"
+                >
+                  +91 7416677365
+
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-accent"><Mail size={16} /></span>
+                <a
+                  href="mailto:sales@chromezy.com"
+                  className="hover:text-foreground transition"
+                >
+                  info@buildbot.tech
+                </a>
+              </div>
+               <div className="flex gap-3 items-center">
+                Follow us:
+              <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/buildbot-technologies-private-limited/"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+              >
+             <Linkedin size={16} />
+              </a>
+        
+              </div>
+             
+            </div>
+            </div>
 
 
            
@@ -89,43 +117,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="mb-4 font-semibold text-white">Contact</h4>
-               <div className="flex gap-3">
-              <a
-                href="https://www.linkedin.com/company/buildbot-technologies-private-limited/"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-              >
-             <Linkedin size={16} />
-              </a>
-             
-            </div>
-             <div className="mt-8 space-y-3 text-sm">
-              <div className="flex items-center gap-3">
-                <span className="text-accent">☎</span>
-                <a
-                  href="tel:+13153080901"
-                  className="hover:text-foreground transition"
-                >
-                  +91 7416677365
-
-                </a>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className="text-accent">✉</span>
-                <a
-                  href="mailto:sales@chromezy.com"
-                  className="hover:text-foreground transition"
-                >
-                  info@buildbot.tech
-                </a>
-              </div>
-            </div>
-
-         
-          </div>
+       
         </div>
 
         {/* Divider */}

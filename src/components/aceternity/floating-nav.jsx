@@ -19,35 +19,18 @@ export const FloatingNav = ({
   ctaIcon
 }) => {
   const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(false);
-
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === "number") {
-      const direction = current - scrollYProgress.getPrevious();
-
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      }
-    }
-  });
+  const [visible, setVisible] = useState(true); // Always visible now
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         initial={{
           opacity: 1,
-          y: -100,
+          y: 0,
         }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          y: 0,
+          opacity: 1,
         }}
         transition={{
           duration: 0.2,
@@ -85,12 +68,10 @@ export const FloatingNav = ({
           {ctaText && ctaLink && (
             <Link to={ctaLink}>
               <button
-                className="border text-xs md:text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-2 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors flex items-center gap-1 md:gap-2 whitespace-nowrap">
+                className="bg-accent hover:bg-accent/90 text-xs md:text-sm font-medium text-black px-2 md:px-4 py-1.5 md:py-2 rounded-full transition-colors flex items-center gap-1 md:gap-2 whitespace-nowrap">
                 <span className="hidden sm:inline">{ctaText}</span>
                 <span className="sm:hidden">Contact</span>
                 {ctaIcon && <span className="hidden sm:inline">{ctaIcon}</span>}
-                <span
-                  className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-px" />
               </button>
             </Link>
           )}
