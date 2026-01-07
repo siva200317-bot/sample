@@ -6,18 +6,45 @@ import { useState, useEffect } from "react";
 import Modal from "./components/ui/Modal";
 import Home from "./pages/Home";
 import Careers from "./pages/Careers";
+import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 
 export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only hide navbar on home page
+      if (location.pathname === '/') {
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+          const rect = productsSection.getBoundingClientRect();
+          // Hide navbar when any part of products section is visible in viewport
+          const isProductsVisible = rect.top < window.innerHeight && rect.bottom > 0;
+          setHideNavbar(isProductsVisible);
+        }
+      } else {
+        setHideNavbar(false);
+      }
+    };
+
+    handleScroll(); // Check on mount/route change
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
 
   return (
     <>
-      <Navbar onContactClick={() => setContactOpen(true)} />
+      <Navbar onContactClick={() => setContactOpen(true)} hideNavbar={hideNavbar} />
 
       <Routes>
         <Route element={<Layout contactOpen={contactOpen} setContactOpen={setContactOpen} />}>
           <Route index element={<Home />} />
           <Route path="careers" element={<Careers />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:productId" element={<ProductDetail />} />
         </Route>
       </Routes>
 

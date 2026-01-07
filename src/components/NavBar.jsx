@@ -2,7 +2,7 @@
 import { Briefcase, Package, Users, Lightbulb, ArrowRight } from "lucide-react";
 import { FloatingNav } from "./aceternity/floating-nav";
 
-export default function Navbar({ onContactClick }) {
+export default function Navbar({ onContactClick, hideNavbar }) {
   const navItems = [
     {
       name: "Home",
@@ -44,6 +44,7 @@ export default function Navbar({ onContactClick }) {
       ctaText="Contact us"
       ctaLink="/#cta"
       ctaIcon={<ArrowRight className="w-4 h-4" />}
+      hideNavbar={hideNavbar}
     />
   );
 }

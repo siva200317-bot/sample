@@ -1,5 +1,5 @@
 import { MotionReveal as Reveal } from '@/components/aceternity/motion-reveal'
-import { ShieldCheck, Award, Cloud } from 'lucide-react'
+import { ShieldCheck, Award, Cloud, Sparkles } from 'lucide-react'
 
 export default function Security() {
   const pills = [
@@ -36,26 +36,38 @@ export default function Security() {
   return (
     <section
       id="security"
-      className="relative overflow-hidden bg-black px-6 py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black px-6 py-32"
     >
-      {/* Uniform section-wide gradient overlay */}
-      <div className="pointer-events-none absolute inset-0  from-yellow-400/10 via-yellow-400/10 to-yellow-400/10" />
+      {/* Animated gradient overlays */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-purple-500/10 animate-pulse" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-400/5 via-transparent to-transparent" />
+      
+      {/* Decorative elements */}
+      <div className="pointer-events-none absolute top-20 left-10 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl animate-pulse" />
+      <div className="pointer-events-none absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+
+      {/* Grid pattern overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="relative mx-auto max-w-6xl text-center">
-        {/* Eyebrow */}
+        {/* Eyebrow with icon */}
         <Reveal
           y={6}
-          as="p"
-          className="text-[11px] tracking-[0.3em] text-gray-500 mb-4"
+          as="div"
+          className="flex items-center justify-center gap-2 mb-6"
         >
-          ISO-CERTIFIED PARTNER
+          <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
+          <p className="text-[11px] tracking-[0.3em] text-yellow-400 font-semibold uppercase">
+            ISO-Certified Partner
+          </p>
+          <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
         </Reveal>
 
-        {/* Heading */}
+        {/* Heading with gradient */}
         <Reveal
           y={8}
           as="h2"
-          className="text-4xl md:text-5xl font-semibold text-white"
+          className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-100 to-white leading-tight"
         >
           ISO-certified. Secure. Ready for mission-critical products.
         </Reveal>
@@ -65,70 +77,25 @@ export default function Security() {
           delay={80}
           y={10}
           as="p"
-          className="mt-5 mx-auto max-w-3xl text-sm md:text-base text-gray-400"
+          className="mt-6 mx-auto max-w-3xl text-base md:text-lg text-gray-300 leading-relaxed"
         >
-          Buildbot operates as an ISO 9001 & ISO 27001 certified product studio —
+          Buildbot operates as an <span className="text-yellow-400 font-semibold">ISO 9001 & ISO 27001 certified</span> product studio —
           combining disciplined engineering, reliable operations, and secure cloud
           practices so global teams can confidently build, operate, and transfer
           products with us.
         </Reveal>
 
         {/* Pills */}
-        {/* <Reveal
-          delay={140}
-          y={12}
-          className="mt-10 flex flex-wrap justify-center gap-4"
-        >
-          {pills.map((p) => (
-            <span
-              key={p.label}
-              className="flex items-center gap-2 rounded-full border border-white/15
-                         bg-white/5 px-4 py-2 text-xs text-white backdrop-blur"
-            >
-              <p.icon className="h-4 w-4 text-white/80" />
-              {p.label}
-            </span>
-          ))}
-        </Reveal> */}
+        
 
         {/* Stats */}
-        {/* <Reveal
-          delay={180}
-          y={12}
-          className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-8"
-        >
-          {stats.map((s) => (
-            <div key={s.label}>
-              <p className="text-[11px] uppercase tracking-widest text-gray-500">
-                {s.label}
-              </p>
-              <p className="mt-1 text-lg font-semibold text-white">
-                {s.value}
-              </p>
-            </div>
-          ))}
-        </Reveal> */}
-
-        {/* Trust line */}
-        {/* <p className="mt-16 text-[11px] tracking-widest text-gray-500">
-          TRUSTED BY TEAMS ACROSS PRODUCT, HEALTHCARE, FINANCE & ENTERPRISE TECH
-        </p> */}
+        
 
         {/* Logos */}
-        {/* <Reveal
-          delay={220}
-          y={12}
-          className="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-4"
-        >
-          {logos.map((logo) => (
-            <span
-              key={logo}
-              className="text-sm font-medium tracking-wide text-gray-500"
-            >
-              {logo}
-            </span>
-          ))}
-        </Reveal> */}
+       
+
+        {/* CTA Button */}
+       
       </div>
     </section>
   )
