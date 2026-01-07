@@ -67,7 +67,7 @@ export default function Careers() {
         Role: selectedJob.Role,
         YearsOfExperience: form.yearsOfExperience,
         Qualification: form.qualification,
-        LinkedIn: form.linkedin,
+        LinkedIn: form.linkedin.trim(),
         Note: form.note.trim(),
       })
 
@@ -75,7 +75,15 @@ export default function Careers() {
       const result = await response.json()
 
       if (!result.success) {
-        setResultMessage({ type: 'error', message: result.message })
+        // Check if it's a duplicate application error
+        if (result.duplicate) {
+          setResultMessage({ 
+            type: 'error', 
+            message: result.message || 'You have already applied for this position recently. Our cooling period is 6 months. Please try again after that period or apply for a different role.'
+          })
+        } else {
+          setResultMessage({ type: 'error', message: result.message })
+        }
         setShowResultScreen(true)
         return
       }
@@ -215,14 +223,29 @@ export default function Careers() {
           <div className="p-6 bg-gray-900 rounded-xl text-white">
             <div className="md:flex gap-8">
               <div className="flex-1">
-                <div className="bg-green-900 text-green-400 rounded px-2 py-1 inline-flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Application submitted
-                </div>
-                <h1 className="text-3xl font-bold mt-4">Thank you for applying to Buildbot</h1>
-                <p className="mt-2 text-gray-300">We have received your application for the {selectedJob?.Role} role. Our team will review your profile and get back to you shortly.</p>
+                {resultMessage.type === 'success' ? (
+                  <>
+                    <div className="bg-green-900 text-green-400 rounded px-2 py-1 inline-flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Application submitted
+                    </div>
+                    <h1 className="text-3xl font-bold mt-4">Thank you for applying to Buildbot</h1>
+                    <p className="mt-2 text-gray-300">We have received your application for the {selectedJob?.Role} role. Our team will review your profile and get back to you shortly.</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="bg-red-900 text-red-400 rounded px-2 py-1 inline-flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      Application not submitted
+                    </div>
+                    <h1 className="text-3xl font-bold mt-4">Unable to submit application</h1>
+                    <p className="mt-2 text-gray-300">{resultMessage.message}</p>
+                  </>
+                )}
                 <p className="mt-4">Role: {selectedJob?.Role}</p>
                 <p>Location: {selectedJob?.Location} - Hybrid</p>
                 <p>Status: Under review</p>

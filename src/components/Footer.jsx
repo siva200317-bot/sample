@@ -79,7 +79,7 @@ export default function Footer() {
                 <span>›</span>
               </li>
              <li className="flex items-center justify-between pt-2 font-semibold text-foreground">
-                <span> <a href="#join-the-team">Join the Team</a></span>
+                <span> <a href="#careers">Join the Team</a></span>
                 <span>›</span>
               </li>
                <li className="flex items-center justify-between pt-2 font-semibold text-accent">
