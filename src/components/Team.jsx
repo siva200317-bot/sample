@@ -3,15 +3,15 @@ import { MotionReveal as Reveal } from '@/components/aceternity/motion-reveal'
 export default function Team() {
   const team = [
   
+   
     {
-      name: "Konda Partha Saradhi",
-      role: "Co-Founder, CEO & Head of R&D",
-      desc: "Former head of product at multiple SaaS scale-ups, now shaping AI-first experiences.",
-      image: "/1.png",
-      linkedin: "https://www.linkedin.com/in/parthakonda/", // Replace with actual URL
+      name: "Yalamanchili Swarna Kumar Babu",
+      role: "Co-Founder, Chairman & Managing Director",
+      desc: "Leads distributed squads shipping secure, observable platforms for regulated teams.",
+      image: "/2.png",
+      linkedin: "https://www.linkedin.com/in/swarnakumarbabu-yalamanchili/", // Replace with actual URL
       twitter: "", // Optional: Add Twitter/X URL
     },
-   
     {
       name: "Muhammed Rehana Begum",
       role: "Co-Founder, President and CTO",
@@ -20,12 +20,13 @@ export default function Team() {
       linkedin: "https://www.linkedin.com/in/rehana-begum-muhammed-905b284a/", // Replace with actual URL
       twitter: "", // Optional: Add Twitter/X URL
     },
+    
      {
-      name: "Yalamanchili Swarna Kumar Babu",
-      role: "Co-Founder, Chairman & Managing Director",
-      desc: "Leads distributed squads shipping secure, observable platforms for regulated teams.",
-      image: "/2.png",
-      linkedin: "https://www.linkedin.com/in/swarnakumarbabu-yalamanchili/", // Replace with actual URL
+      name: "Konda Partha Saradhi",
+      role: "Co-Founder, CEO & Head of R&D",
+      desc: "Former head of product at multiple SaaS scale-ups, now shaping AI-first experiences.",
+      image: "/1.png",
+      linkedin: "https://www.linkedin.com/in/parthakonda/", // Replace with actual URL
       twitter: "", // Optional: Add Twitter/X URL
     },
       
