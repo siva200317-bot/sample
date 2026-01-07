@@ -128,17 +128,93 @@ export default function Careers() {
     setSelectedViewJob(null)
   }
 
+  const [filterDepartment, setFilterDepartment] = useState('All locations')
+
+  // Get unique departments for filters
+  const departments = ['All locations', 'Engineering', 'Product & Design', 'Operations']
+
+  // Filter jobs based on selected department
+  const filteredJobs = filterDepartment === 'All locations' 
+    ? jobs 
+    : jobs.filter(job => {
+        if (filterDepartment === 'Engineering') return job.Department?.toLowerCase().includes('engineering')
+        if (filterDepartment === 'Product & Design') return job.Department?.toLowerCase().includes('product') || job.Department?.toLowerCase().includes('design')
+        if (filterDepartment === 'Operations') return job.Department?.toLowerCase().includes('operations')
+        return true
+      })
+
   return (
     <main className="bg-black min-h-screen">
-      <section className="px-6 py-24 max-w-5xl mx-auto text-white">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Careers at Buildbot
+      <section className="px-6 py-24 max-w-7xl mx-auto text-white">
+        {/* Header with banner */}
+        <div className="mb-8 p-4 rounded-xl border border-yellow-500/30 bg-yellow-500/5 flex items-center gap-3">
+          <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span className="text-sm">More open roles at Buildbot</span>
+        </div>
+
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Explore all current opportunities
         </h1>
+        <p className="text-gray-400 mb-8 max-w-2xl">
+          Browse additional roles across product, engineering, design, and operations. Select a role to view details and continue your application.
+        </p>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap gap-3 mb-8">
+          {departments.map((dept) => (
+            <button
+              key={dept}
+              onClick={() => setFilterDepartment(dept)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                filterDepartment === dept
+                  ? 'bg-yellow-500 text-black'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
+              }`}
+            >
+              {dept === 'All locations' && (
+                <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              )}
+              {dept === 'Engineering' && (
+                <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              )}
+              {dept === 'Product & Design' && (
+                <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              )}
+              {dept === 'Operations' && (
+                <svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              )}
+              {dept}
+            </button>
+          ))}
+        </div>
 
         {loadingJobs ? (
-          <p className="text-gray-400">Loading jobs...</p>
-        ) : jobs.length === 0 ? (
-          <div className="text-center py-16">
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-2xl border border-gray-800 bg-gray-900/50 p-6 animate-pulse">
+                <div className="h-6 bg-gray-800 rounded w-1/3 mb-3" />
+                <div className="h-4 bg-gray-800 rounded w-1/2 mb-4" />
+                <div className="h-4 bg-gray-800 rounded w-full mb-2" />
+                <div className="flex justify-between items-center">
+                  <div className="h-4 bg-gray-800 rounded w-1/4" />
+                  <div className="h-10 bg-gray-800 rounded w-32" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : filteredJobs.length === 0 ? (
+          <div className="text-center py-16 border border-gray-800 rounded-2xl">
             <div className="mb-6">
               <svg
                 className="w-24 h-24 mx-auto text-gray-600"
@@ -154,40 +230,65 @@ export default function Careers() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold mb-3">No Open Positions</h2>
+            <h2 className="text-2xl font-bold mb-3">No positions found</h2>
             <p className="text-gray-400 max-w-md mx-auto">
-              We don't have any open positions at the moment. Please check back later or follow us on social media for updates on new opportunities.
+              {jobs.length === 0 
+                ? "We don't have any open positions at the moment. Please check back later."
+                : "No positions match this filter. Try selecting a different department."}
             </p>
           </div>
         ) : (
-          <div className="space-y-6">
-            {jobs.map((job) => (
+          <div className="space-y-4">
+            {filteredJobs.map((job) => (
               <div
                 key={job.Role}
-                className="rounded-xl border border-white/10 p-6 bg-white/5"
+                className="rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-gray-900/30 hover:border-gray-700 transition-all p-6"
               >
-                <h2 className="text-xl font-semibold mb-1">{job.Role}</h2>
-
-                <p className="text-sm text-gray-400 mb-2">
-                  {job.Department} · {job.Location} · {job.WorkMode}
-                </p>
-
-                <p className="text-sm text-gray-300 mb-4 line-clamp-3">
-                  {job.Description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400">
-                    {job.EmploymentType} · Openings: {job.Openings}
-                  </span>
-
-                  <div className="flex gap-4">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-start gap-3 mb-2">
+                      <h2 className="text-xl font-semibold">{job.Role}</h2>
+                      <span className="px-2 py-1 rounded text-xs bg-blue-900/50 text-blue-300 border border-blue-800">
+                        {job.EmploymentType || 'Full-time'} · {job.WorkMode || 'Hybrid'}
+                      </span>
+                    </div>
+                    
+                    <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400 mb-2">
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        {job.Location}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {job.Experience || '7+ years experience'}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                        {job.Department}
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm text-gray-500">
+                        Posted {job.PostedDate || '3 days ago'} · {job.Priority === 'High' ? 'High priority' : ''}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-3">
                     <button
                       onClick={() => {
                         setSelectedViewJob(job)
                         setViewOpen(true)
                       }}
-                      className="px-4 py-2 rounded-lg bg-gray-600 text-white font-medium hover:bg-gray-500"
+                      className="px-4 py-2 rounded-full border border-gray-700 text-gray-300 font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
                     >
                       View details
                     </button>
@@ -198,9 +299,12 @@ export default function Careers() {
                         setShowResultScreen(false)
                         setResultMessage({ type: '', message: '' })
                       }}
-                      className="px-4 py-2 rounded-lg bg-yellow-400 text-black font-medium hover:bg-yellow-300"
+                      className="px-6 py-2.5 rounded-full bg-yellow-500 text-black font-medium hover:bg-yellow-400 transition-colors flex items-center gap-2 whitespace-nowrap"
                     >
                       Apply now
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </button>
                   </div>
                 </div>

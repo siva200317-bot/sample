@@ -3,9 +3,9 @@ import { Linkedin, Mail, PhoneCall } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-background px-6 pt-20 text-sm text-muted-foreground border-t border-border">
-      <div className="mx-auto max-w-7xl">
+      <div className="">
         {/* Top grid */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-4">
+        <div className=" mx-auto max-w-7xl grid grid-cols-1 gap-16 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 text-foreground text-xl font-semibold">
@@ -121,7 +121,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-16 border-t border-border" />
+        <div className="mt-6 border-t border-border " />
 
         {/* Bottom bar */}
         <div className="flex-1 flex flex-row items-center  justify-center gap-4 py-6 text-xs md:flex-row">
