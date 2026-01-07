@@ -66,9 +66,9 @@ export default function HorizontalParallax() {
   ], [])
 
   return (
-    <section id="horizontal" ref={sectionRef} className="relative h-[220vh] bg-black ">
-      <div className="sticky top-0 h-screen overflow-hidden bg-black border-t border-white/10">
-        <div className="text-center max-w-2xl mx-auto pt-24 sm:pt-28">
+    <section id="horizontal" ref={sectionRef} className="relative h-[200vh] bg-black">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden bg-black border-t border-white/10">
+        <div className="text-center max-w-2xl mx-auto pb-8">
         
           <h2 className="text-3xl md:text-4xl font-semibold text-white">
             Products we've built & shipped
@@ -91,13 +91,8 @@ export default function HorizontalParallax() {
             </span>
           </div>
         </div>
-        <Parallax translateX={["0px", (inView ? endX : "0px")]} startScroll={startScroll} endScroll={endScroll} className="h-full">
-          <div ref={trackRef} className="h-auto flex items-center gap-6 px-8" style={{ width: '160vw' }}>
-{/* <h1 className='text-6xl font-extrabold'>
-
-        Featured
-Products
-</h1> */}
+        <Parallax translateX={["0px", (inView ? endX : "0px")]} startScroll={startScroll} endScroll={endScroll} className="h-auto">
+          <div ref={trackRef} className=" flex items-start gap-2">
             {products.map((p, i) => (
               <Panel key={i} index={i} product={p} />
             ))}
@@ -112,7 +107,7 @@ Products
 
 function Panel({ index, product }) {
   return (
-    <div className="group shrink-0 w-[30vw] max-w-[480px] h-[65vh] rounded-2xl border border-white/20 bg-black p-6 relative overflow-hidden transition-all duration-500">
+    <div className="group shrink-0 w-[30vw] max-w-[480px] h-[20rem] rounded-2xl border border-white/20 bg-black p-6 relative overflow-hidden transition-all duration-500">
       
       {/* Dark gray backdrop that appears on hover */}
       <div className="absolute inset-0 bg-gray-900/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
@@ -133,7 +128,7 @@ function Panel({ index, product }) {
           </p> */}
         </div>
         <div className="text-gray-400 text-sm">
-          Panel {index + 1} • Built by Buildbot
+          • Built by Buildbot
         </div>
       </div>
 

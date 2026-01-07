@@ -69,7 +69,7 @@ export default function Stats() {
         </div>
 
         {/* RIGHT STATS */}
-        <div className="flex-1 flex flex-wrap justify-between gap-y-2 my-10">
+        <div className="flex-1 flex flex-wrap justify-between gap-y-2 ">
           {[
             {
               value: "50+",
