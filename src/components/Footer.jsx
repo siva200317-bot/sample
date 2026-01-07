@@ -19,18 +19,15 @@ export default function Footer() {
             <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
               Software Development & product development; we're your tech
               partners, crafting modern digital solutions for next-gen
-              excellence!about
+              excellence!
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+
+              Buildbot Technologies Private Limited <br />
+              4th floor, Lalitha Nivas, Rd Number 2, Veterinary Colony, <br />
+              Vijayawada, Andhra Pradesh 520008, India
             </p>
 
-            <div className="mt-6 flex gap-4 text-xs">
-              <a href="#" className="hover:text-foreground transition">
-                Terms
-              </a>
-              <span>|</span>
-              <a href="#" className="hover:text-foreground transition">
-                Privacy
-              </a>
-            </div>
 
            
           </div>
@@ -38,26 +35,23 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <ul className="space-y-4">
-             
               <li className="flex items-center justify-between border-b border-border pb-2">
-                <span> <a href="#">Home</a></span>
+                <span><a href="/" className="hover:text-foreground transition">Home</a></span>
                 <span>›</span>
               </li>
-          
               <li className="flex items-center justify-between border-b border-border pb-2">
-                <span><a href="#"> About Us </a></span>
+                <span><a href="/#services" className="hover:text-foreground transition">Services</a></span>
                 <span>›</span>
               </li>
-       
-              {/* <li className="flex items-center justify-between border-b border-border pb-2">
-                <span><a href="#career"> Career</a></span>
+              <li className="flex items-center justify-between border-b border-border pb-2">
+                <span><a href="/#horizontal" className="hover:text-foreground transition">Products</a></span>
                 <span>›</span>
-              </li> */}
-              {/* <li className="flex items-center justify-between border-b border-border pb-2">
-                <span><a href="#case-study">Case Study</a></span>
+              </li>
+            
+              <li className="flex items-center justify-between border-b border-border pb-2">
+                <span><a href="/#insights" className="hover:text-foreground transition">Insights</a></span>
                 <span>›</span>
-              </li> */}
-             
+              </li>
             </ul>
           </div>
 
@@ -80,6 +74,10 @@ export default function Footer() {
                 <span>E-commerce</span>
                 <span>›</span>
               </li> */}
+                 <li className="flex items-center justify-between border-b border-border pb-2">
+                <span><a href="/#leadership" className="hover:text-foreground transition">Leadership</a></span>
+                <span>›</span>
+              </li>
              <li className="flex items-center justify-between pt-2 font-semibold text-foreground">
                 <span> <a href="#join-the-team">Join the Team</a></span>
                 <span>›</span>
@@ -134,12 +132,22 @@ export default function Footer() {
         <div className="mt-16 border-t border-border" />
 
         {/* Bottom bar */}
-        <div className="flex-1 flex-col items-center text-center justify-between gap-4 py-6 text-xs md:flex-row">
-          <p>© 2026 Buildbot. All rights reserved.</p>
+        <div className="flex-1 flex flex-row items-center  justify-center gap-4 py-6 text-xs md:flex-row">
+         
 
+         
           <div className="flex items-center gap-4">
-            
+             <p>© 2026 Buildbot. All rights reserved.</p>
           </div>
+             <div className="flex gap-4 text-xs">
+              <a href="#" className="hover:text-foreground transition">
+                Terms
+              </a>
+              <span>|</span>
+              <a href="#" className="hover:text-foreground transition">
+                Privacy
+              </a>
+            </div>
         </div>
       </div>
     </footer>

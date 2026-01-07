@@ -56,7 +56,7 @@ export function InfiniteMovingCards({
       } else if (speed === 'normal') {
         containerRef.current.style.setProperty('--animation-duration', '40s')
       } else {
-        containerRef.current.style.setProperty('--animation-duration', '60s')
+        containerRef.current.style.setProperty('--animation-duration', '80s')
       }
     }
   }
@@ -72,7 +72,7 @@ export function InfiniteMovingCards({
       <ul
         ref={scrollerRef}
         className={cn(
-          'flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap',
+          'flex min-w-full shrink-0 gap-0 md:gap-4 py-4 w-max flex-nowrap',
           start && 'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
@@ -80,7 +80,7 @@ export function InfiniteMovingCards({
         {items.map((item, idx) => (
           <li
             key={idx}
-            className="w-[200px] max-w-full relative rounded-2xl flex-shrink-0 px-8 py-6"
+            className="w-[100px] md:w-[200px] max-w-full relative rounded-2xl flex-shrink-0 px-1 md:px-8 py-4 md:py-6"
           >
             {item.src ? (
               <img

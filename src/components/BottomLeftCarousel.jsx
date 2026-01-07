@@ -38,6 +38,10 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
 
   const [index, setIndex] = useState(0);
   const [isHidden, setIsHidden] = useState(false);
+  const [position, setPosition] = useState({ x: 8, y: 16 }); // default: left-2 (8px), bottom-4 (16px)
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasMoved, setHasMoved] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -66,6 +70,11 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
   }, []);
 
   const onClick = (e, href) => {
+    // Prevent navigation if user was dragging
+    if (hasMoved) {
+      e.preventDefault();
+      return;
+    }
     if (href?.startsWith("#")) {
       e.preventDefault();
       const id = href.slice(1);
@@ -78,31 +87,120 @@ export default function BottomLeftCarousel({ intervalMs = 2500 }) {
     }
   };
 
+  const handleMouseDown = (e) => {
+    // Prevent text selection while dragging
+    e.preventDefault();
+    setIsDragging(true);
+    setHasMoved(false);
+    setDragOffset({
+      x: e.clientX - position.x,
+      y: e.clientY - (window.innerHeight - position.y)
+    });
+  };
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setHasMoved(false);
+    const touch = e.touches[0];
+    setDragOffset({
+      x: touch.clientX - position.x,
+      y: touch.clientY - (window.innerHeight - position.y)
+    });
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    setHasMoved(true);
+    const newX = e.clientX - dragOffset.x;
+    const newY = window.innerHeight - e.clientY + dragOffset.y;
+    
+    // Add boundaries to keep it on screen
+    const maxX = window.innerWidth - 192; // 192px = w-48
+    const maxY = window.innerHeight - 128; // 128px = h-32
+    
+    setPosition({
+      x: Math.max(0, Math.min(newX, maxX)),
+      y: Math.max(16, Math.min(newY, maxY))
+    });
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    setHasMoved(true);
+    const touch = e.touches[0];
+    const newX = touch.clientX - dragOffset.x;
+    const newY = window.innerHeight - touch.clientY + dragOffset.y;
+    
+    // Add boundaries to keep it on screen
+    const maxX = window.innerWidth - 192;
+    const maxY = window.innerHeight - 128;
+    
+    setPosition({
+      x: Math.max(0, Math.min(newX, maxX)),
+      y: Math.max(16, Math.min(newY, maxY))
+    });
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    // Reset hasMoved after a brief delay to allow click handler to check it
+    setTimeout(() => setHasMoved(false), 100);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      const handleMove = (e) => handleMouseMove(e);
+      const handleTMove = (e) => handleTouchMove(e);
+      
+      document.addEventListener('mousemove', handleMove);
+      document.addEventListener('mouseup', handleDragEnd);
+      document.addEventListener('touchmove', handleTMove, { passive: false });
+      document.addEventListener('touchend', handleDragEnd);
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMove);
+        document.removeEventListener('mouseup', handleDragEnd);
+        document.removeEventListener('touchmove', handleTMove);
+        document.removeEventListener('touchend', handleDragEnd);
+      };
+    }
+  }, [isDragging, dragOffset, position]);
+
   const current = items[index];
 
   // Don't render if hidden
   if (isHidden) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 flex flex-col gap-3">
+    <div 
+      className="fixed z-50 flex flex-col gap-2 sm:gap-3 cursor-move select-none"
+      style={{ 
+        left: `${position.x}px`, 
+        bottom: `${position.y}px`,
+        transition: isDragging ? 'none' : 'all 0.2s ease'
+      }}
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+    >
       <a
         href={current.href}
         onClick={(e) => onClick(e, current.href)}
         aria-label={`Open products section (currently: ${current.title})`}
-        className="block h-32 w-48 rounded-xl border border-white/10 bg-black/80 backdrop-blur-md shadow-lg overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
-       
+        className="block h-24 w-36 sm:h-32 sm:w-48 rounded-xl border border-white/10 bg-black/80 backdrop-blur-md shadow-lg overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
       >
         <img
           key={current.id}
           src={current.image}
           alt={current.title}
           loading="lazy"
-          className="h-full w-full object-cover transition-opacity duration-500"
+          className="h-full w-full object-cover transition-opacity duration-500 pointer-events-none"
         />
       </a>
       
       {/* Navigation Dots */}
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-1.5 sm:gap-2">
         {items.map((item, idx) => (
           <button
             key={item.id}

@@ -16,7 +16,8 @@ export default function HorizontalParallax() {
       if (track) {
         const trackWidth = track.scrollWidth
         const viewportW = window.innerWidth
-        const delta = Math.max(0, trackWidth - viewportW)
+        // Add extra buffer to ensure last card is fully visible
+        const delta = Math.max(0, trackWidth - viewportW +10)
         setEndX(`${-delta}px`)
       }
       if (section) {
@@ -79,7 +80,7 @@ export default function HorizontalParallax() {
           </p>
 
           {/* Filters */}
-          <div className="flex justify-center gap-2 mt-2 mb-4">
+          {/* <div className="flex justify-center gap-2 mt-2 mb-4">
             <span className="px-4 py-1 text-xs rounded-full bg-yellow-400 text-black">
               All
             </span>
@@ -89,10 +90,10 @@ export default function HorizontalParallax() {
             <span className="px-4 py-1 text-xs rounded-full border border-white/10 text-gray-300">
               Buildbot products
             </span>
-          </div>
+          </div> */}
         </div>
         <Parallax translateX={["0px", (inView ? endX : "0px")]} startScroll={startScroll} endScroll={endScroll} className="h-auto">
-          <div ref={trackRef} className=" flex items-start gap-2">
+          <div ref={trackRef} className="flex items-start gap-4 px-4 md:px-8 pr-[15vw] md:pr-[10vw]">
             {products.map((p, i) => (
               <Panel key={i} index={i} product={p} />
             ))}
@@ -107,7 +108,7 @@ export default function HorizontalParallax() {
 
 function Panel({ index, product }) {
   return (
-    <div className="group shrink-0 w-[30vw] max-w-[480px] h-[20rem] rounded-2xl border border-white/20 bg-black p-6 relative overflow-hidden transition-all duration-500">
+    <div className="group shrink-0 w-[80vw] sm:w-[50vw] lg:w-[30vw] max-w-[480px] h-[20rem] rounded-2xl border border-white/20 bg-black p-4 md:p-6 relative overflow-hidden transition-all duration-500">
       
       {/* Dark gray backdrop that appears on hover */}
       <div className="absolute inset-0 bg-gray-900/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
