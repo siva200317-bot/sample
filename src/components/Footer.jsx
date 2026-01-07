@@ -20,6 +20,14 @@ export default function Footer() {
               4th floor, Lalitha Nivas, Rd Number 2, Veterinary Colony, <br />
               Vijayawada, Andhra Pradesh 520008, India
             </p>
+            <hr className="font-bold">
+            </hr>
+<h1 className="font-bold">
+  </h1>            <p>
+              
+Meydan Grandstand, 6th floor, Meydan Road,
+Nad Al Sheba, Dubai, U.A.E.
+            </p>
             <div className="mt-1 space-y-3 text-sm">
               <div className="flex items-center gap-3">
                 <span className="text-accent"><PhoneCall size={16} /></span>
