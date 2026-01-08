@@ -4,7 +4,7 @@ import { ShieldCheck, Award, Cloud, Sparkles } from 'lucide-react'
 export default function Security() {
   const pills = [
     {
-      label: 'ISO 9001 & ISO 27001 certified delivery',
+      label: 'ISO 27001 certified delivery',
       icon: ShieldCheck,
     },
     {
@@ -76,7 +76,7 @@ export default function Security() {
         <Reveal
           y={8}
           as="h2"
-          className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-100 to-white leading-tight"
+          className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-100 to-white leading-tight"
         >
           ISO-certified. Secure. Ready for mission-critical products.
         </Reveal>
@@ -86,9 +86,9 @@ export default function Security() {
           delay={80}
           y={10}
           as="p"
-          className="mt-6 mx-auto max-w-3xl text-base md:text-lg text-gray-300 leading-relaxed"
+          className="mt-6 mx-auto max-w-5xl text-base md:text-lg text-gray-300 leading-relaxed"
         >
-          Buildbot operates as an <span className="text-yellow-400 font-semibold">ISO 9001 & ISO 27001 certified</span> product studio —
+          Buildbot operates as an <span className="text-yellow-400 font-semibold">ISO 27001 certified</span> product studio —
           combining disciplined engineering, reliable operations, and secure cloud
           practices so global teams can confidently build, operate, and transfer
           products with us.

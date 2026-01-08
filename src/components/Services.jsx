@@ -47,10 +47,10 @@ export default function Services() {
     <section id="services" className="relative bg-background py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <Reveal y={8}>
             <p className="text-xs tracking-widest text-muted-foreground mb-3">
-              OUR SERVICES AT BUILDBOT TECHNOLOGIES
+              OUR SERVICES 
             </p>
           </Reveal>
           <Reveal delay={80} y={10}>

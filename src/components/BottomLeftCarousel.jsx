@@ -19,19 +19,19 @@ import { useEffect, useMemo, useState } from "react";
 export default function BottomLeftCarousel({ intervalMs = 2500 }) {
   const items = useMemo(
     () => [
-      { id: 1, title: "Showcase 1", image: "products/Agriport.png", href: "#products" },
-      { id: 2, title: "Showcase 2", image: "products/Aqua.png", href: "#products" },
-      { id: 3, title: "Showcase 3", image: "products/Civic.png", href: "#products" },
+      { id: 1, title: "Showcase 1", image: "products/agriport.png", href: "#products" },
+      { id: 2, title: "Showcase 2", image: "products/aqualens.png", href: "#products" },
+      { id: 3, title: "Showcase 3", image: "products/civic.png", href: "#products" },
 
-      { id: 4, title: "Showcase 3", image: "products/Cloud.png", href: "#products" },
+      { id: 4, title: "Showcase 4", image: "products/Spark.png", href: "#products" },
 
-      { id: 5, title: "Showcase 3", image: "products/cvm.png", href: "#products" },
+      { id: 5, title: "Showcase 5", image: "products/si.png", href: "#products" },
 
-      { id: 6, title: "Showcase 3", image: "products/Rubber.png", href: "#products" },
+      { id: 6, title: "Showcase 6", image: "products/Rubber.png", href: "#products" },
 
-      { id: 7, title: "Showcase 3", image: "products/Spark.png", href: "#products" },
+      { id: 7, title: "Showcase 7", image: "products/Spark.png", href: "#products" },
 
-      { id: 8, title: "Showcase 3", image: "products/St.png", href: "#products" },
+      { id: 8, title: "Showcase 8", image: "products/St.png", href: "#products" },
     ],
     []
   );

@@ -10,31 +10,36 @@ export default function CTA() {
           {/* Left: Text */}
           <div>
             <p className="mb-3 text-xs tracking-widest text-neutral-400">
-              BUILD · OPERATE · TRANSFER
+              FREE CONSULTATION
             </p>
 
-            <h2 className="text-4xl font-bold text-white md:text-5xl">
+            <h2 className="text-2xl font-bold text-white md:text-4xl">
               Let's <span className="text-amber-400">build your idea</span> together.
             </h2>
 
-            <p className="mt-4 max-w-xl text-sm text-neutral-400">
-              30 min free discovery call with our experts. Talk product strategy,
-              software architecture, and IoT feasibility in one focused session.
-            </p>
-
             <div className="mt-8">
-              <p className="text-xs font-semibold tracking-wide text-neutral-400">
+              {/* <p className="text-xs font-semibold tracking-wide text-neutral-400">
                 FREE CONSULTATION
-              </p>
+              </p> */}
 
-              <h3 className="mt-2 text-2xl font-semibold text-white">
+              {/* <h3 className="mt-2 text-2xl font-semibold text-white">
                 Book a 30-min call with our CTO team.
-              </h3>
+              </h3> */}
 
-              <p className="mt-4 text-sm text-neutral-400 max-w-xl">
-                Share your product vision, unpack technical risks, and leave with
-                a clear next step for your build journey.
+              <p className="mt-4 text-sm text-neutral-400 max-w-xl">30 min free discovery call with our experts. Talk product strategy,
+software architecture, and build or IoT feasibility in one focused
+session.
+
               </p>
+
+                 <p className="my-3 text-xs tracking-widest text-neutral-400">
+What we will cover
+
+
+
+
+
+            </p>
 
               <ul className="mt-6 space-y-3 text-sm text-neutral-300">
                 <li className="flex gap-3 items-start">
@@ -65,14 +70,30 @@ export default function CTA() {
               <div className="rounded-xl border border-neutral-800 bg-neutral-950 p-8 text-center">
                 <div className="mb-6">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-400/10 mb-4">
-                    <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-8 h-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <title>Calendar icon</title>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
+                   <p className="mb-3 text-xs tracking-widest text-neutral-400">
+30-min strategy call
+
+
+
+
+
+            </p>
+
                   <h4 className="text-lg font-semibold text-white mb-2">Ready to get started?</h4>
                   <p className="text-sm text-neutral-400 max-w-md mx-auto">
-                    Pick a time that works for you. Our calendar shows real-time availability.
+                  
+
+
+
+
+
+Pick a time that works for you. Our calendar shows real-time
+availability for a focused 30-minute video call with our product team.  
                   </p>
                 </div>
 
@@ -80,7 +101,7 @@ export default function CTA() {
                   href={GOOGLE_CALENDAR_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-amber-400 px-8 py-4 text-base font-semibold text-black transition-all hover:bg-amber-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-amber-400 px-8 py-4 text-base font-semibold text-black transition-all hover:bg-amber-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <title>Calendar icon</title>

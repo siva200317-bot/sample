@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Parallax } from 'react-scroll-parallax'
 import { Link } from 'react-router-dom'
+import { products as productsData } from '@/data/products'
+import { ArrowBigRight } from 'lucide-react'
 
 export default function HorizontalParallax() {
   const sectionRef = useRef(null)
@@ -54,18 +56,13 @@ export default function HorizontalParallax() {
     }
   }, [])
 
-  const products = useMemo(() => [
-    { title: 'Agriport', image: 'products/agriport.png', desc: 'Identify and map geographic areas of agricultural land. Provides detailed data, boundary mapping, and analytics to support farmers in making informed decisions about crop management.', id: 'agriport' },
-    { title: 'Aqualens', image: 'products/besmart.png', desc: 'An intelligent, IoT-enabled solution that allows users to monitor, control and optimize their water treatment and distribution process in real time. Ensuring efficient plant operations and sustainable resource…', id: 'aqua' },
-    { title: 'Civic Pulse', image: 'products/plantninja.png', desc: 'A platform to identify public issues and help communities develop solutions. Connects citizens and local authorities to collaborate on concerns, ensuring transparency and accountability.', id: 'civic' },
-    { title: 'Cloud Doctor', image: 'products/rest.png', desc: 'Optimise AWS services with real-time insights and automated recommendations. Manage resources, control costs, and improve performance across multiple AWS accounts efficiently.', id: 'cloud' },
-    { title: 'CVM Beach Productions', image: 'products/seaog.png', desc: 'A comprehensive travel and accommodation management platform. Search, book, and manage itineraries near shopping areas with real-time updates and personalised recommendations.', id: 'cvm' },
-    { title: 'Perfect Rubber Industry', image: 'products/stpete.png', desc: 'A digital hub for sourcing high-quality rubber compounds and products. Provides detailed specifications and quality assurance data to help manufacturers and buyers make informed decisions.', id: 'rubber' },
-
-    { title: 'Spark', image: 'products/Spark.png', desc: 'Unified task tracking and assignment platform.Allows teams to see all tasks, assign responsibilities, and monitor progress in real time to ensure projects stay on schedule.', id: 'spark' },
-
-    { title: 'St.Pete Conf', image: 'products/St.png', desc: 'A central platform for managing room and accommodation reservations for conferences. Allows organisers and attendees to check availability and manage bookings with real-time notifications.', id: 'st' },
-  ], [])
+  const products = useMemo(() => productsData.map(p => ({
+    title: p.title,
+    image: p.image,
+    tagline:p.tagline,
+    desc: p.description,
+    id: p.id
+  })), [])
 
   return (
     <section id="products" ref={sectionRef} className="relative h-[200vh] bg-black">
@@ -92,7 +89,23 @@ export default function HorizontalParallax() {
               Buildbot products
             </span>
           </div> */}
-        </div>
+
+<p className="text-xs tracking-widest text-muted-foreground mb-3">
+              OUR PRODUCTS 
+            </p>  
+           <p
+                    y={8}
+                    as="h2"
+                    className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-100 to-white leading-tight"
+                  >
+                    Products we've built & shipped
+                  </p>
+<p className="text-md   my-3">
+A snapshot of the ideas we've turned into real products — from wearables to agriculture
+platforms and creator tools.            </p>      
+            
+              </div>
+
         <Parallax translateX={["0px", (inView ? endX : "0px")]} startScroll={startScroll} endScroll={endScroll} className="h-auto">
           <div ref={trackRef} className="flex items-start gap-4 px-4 md:px-8 pr-[15vw] md:pr-[10vw]">
             {products.map((p, i) => (
@@ -124,39 +137,42 @@ function Panel({ index, product }) {
   
   return (
     <Link to={`/products/${product.id}`} className="block">
-      <div className={`group shrink-0 w-[80vw] sm:w-[50vw] lg:w-[35vw] max-w-[500px] h-[85vh] rounded-3xl ${bgColor} p-8 relative overflow-hidden transition-all duration-500 cursor-pointer`}>
-        
-        {/* White overlay that appears on hover - covers entire card */}
-        <div className="absolute inset-0 bg-white/0 group-hover:bg-white/90 transition-all duration-500 rounded-3xl pointer-events-none" />
-        
-        {/* Image container - floating mockup style with shadow */}
-        <div className="relative w-full h-[65%] mb-6 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-95 z-10">
+      <div className="group shrink-0 w-[80vw] sm:w-[50vw] lg:w-[35vw] max-w-[500px] h-[65vh] rounded-3xl relative overflow-hidden cursor-pointer">
+        {/* Image container - full height */}
+        <div className="relative w-full h-full rounded-3xl overflow-hidden">
+          
           <img 
             src={product.image} 
             alt={product.title} 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
           />
-        </div>
-        
-        {/* Text content at bottom */}
-        <div className="relative z-10 transition-transform duration-500 group-hover:-translate-y-4">
-          <h3 className="text-4xl md:text-5xl font-bold text-black mb-3">
-            {product.title}
-          </h3>
           
-          {/* Category tags - visible by default, fade out on hover */}
-          <div className="text-black/60 text-sm transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:h-0 overflow-hidden">
-            Product Design • Web Design
+          {/* Default Title Overlay - visible by default, fades on hover */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 transition-opacity duration-300 group-hover:opacity-0">
+            <h3 className="text-xl md:text-xl font-bold text-white">
+              {product.title}
+            </h3>
+            
+            <p>{product.tagline}</p>
           </div>
           
-          {/* Description and button - appears on hover below the title */}
-          <div className="transition-all duration-300 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-40 group-hover:mt-2">
-            <p className="text-black/80 text-base mb-4 leading-relaxed">
-              {product.desc}
-            </p>
-            <div className="inline-flex items-center gap-2 text-black font-semibold hover:gap-3 transition-all bg-white px-4 py-2 rounded-lg shadow-sm">
-              Explore
-              <span aria-hidden="true">→</span>
+          {/* Hover Overlay - Full content revealed on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <div className="transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-75">
+              <h3 className="text-1xl md:text-2xl font-bold text-white mb-3">
+                {product.title}
+              </h3>
+            </div>
+            <div className="transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-150">
+              <p className="text-gray-300 mb-4 line-clamp-3 text-sm">
+                {product.desc}
+              </p>
+            </div>
+            <div className="transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-200">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold w-fit hover:bg-yellow-300">
+                Explore
+                <ArrowBigRight/>
+              </div>
             </div>
           </div>
         </div>

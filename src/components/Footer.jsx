@@ -15,35 +15,43 @@ export default function Footer() {
               className="h-8 w-auto object-contain"
             />
             </div>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Buildbot Technologies Private Limited <br />
-              4th floor, Lalitha Nivas, Rd Number 2, Veterinary Colony, <br />
-              Vijayawada, Andhra Pradesh 520008, India
-            </p>
-            <hr className="font-bold">
-            </hr>
-<h1 className="font-bold">
-  </h1>            <p>
+            {/* Addresses with vertical separator */}
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:divide-x md:divide-border">
+              {/* India Address */}
+              <div className="md:pr-8">
+                <p className="text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground block mb-2">India Office</span>
+                  4th floor, Lalitha Nivas, Rd No 2, Veterinary Colony,
+                  Vijayawada, Andhra Pradesh 520008, India
+                </p>
+              </div>
               
-Meydan Grandstand, 6th floor, Meydan Road,
-Nad Al Sheba, Dubai, U.A.E.
-            </p>
-            <div className="mt-1 space-y-3 text-sm">
+              {/* UAE Address */}
+              <div className="md:pl-8">
+                <p className="text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground block mb-2">UAE Office</span>
+                  Meydan Grandstand, 6th floor, Meydan Road,<br />
+                  Nad Al Sheba, Dubai, U.A.E.
+                </p>
+              </div>
+            </div>
+            
+            {/* Contact Information - Below both addresses */}
+            <div className="mt-6 flex flex-wrap items-center gap-6 text-sm border-t border-border pt-6">
               <div className="flex items-center gap-3">
                 <span className="text-accent"><PhoneCall size={16} /></span>
                 <a
-                  href="tel:+13153080901"
+                  href="tel:+917416677365"
                   className="hover:text-foreground transition"
                 >
                   +91 7416677365
-
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <span className="text-accent"><Mail size={16} /></span>
                 <a
-                  href="mailto:sales@chromezy.com"
+                  href="mailto:info@buildbot.tech"
                   className="hover:text-foreground transition"
                 >
                   info@buildbot.tech

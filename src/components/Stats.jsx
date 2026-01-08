@@ -23,7 +23,7 @@ export default function Stats() {
           </Reveal>
 
           {/* Description */}
-          <Reveal delay={140} y={12} as="p" className="mt-3 text-sm text-muted-foreground max-w-md">
+          <Reveal delay={140} y={12} as="p" className="mt-3 text-sm text-muted-foreground max-w-l">
             From zero to one and beyond, we partner with founders and product
             leaders to design, build, and operate digital products that feel
             premium on day one and compound value over time.
@@ -31,25 +31,25 @@ export default function Stats() {
 
           {/* Feature list */}
           <div className="mt-4 space-y-2.5">
-            <Reveal y={12} delay={180} className="flex items-start gap-3 p-4 rounded-full border border-border bg-surface">
+            <Reveal y={12} delay={180} className="flex items-start gap-3  rounded-full ">
               <span className="text-accent">✦</span>
-              <p className="text-sm text-foreground">
+              <p className="text-sm text-muted-foreground">
                 We help you shape, validate, and position your product before a
                 single line of code.
               </p>
             </Reveal>
 
-            <Reveal y={12} delay={250} className="flex items-start gap-3 p-4 rounded-full border border-border bg-surface">
+            <Reveal y={12} delay={250} className="flex items-start gap-3  rounded-full ">
               <span className="text-accent">✦</span>
-              <p className="text-sm text-foreground">
+              <p className="text-sm text-muted-foreground">
                 Dedicated AI & product squads that build and operate as if they
                 own the roadmap.
               </p>
             </Reveal>
 
-            <Reveal y={12} delay={320} className="flex items-start gap-3 p-4 rounded-full border border-border bg-surface">
+            <Reveal y={12} delay={320} className="flex items-start gap-3  rounded-full  ">
               <span className="text-accent">✦</span>
-              <p className="text-sm text-foreground">
+              <p className="text-sm text-muted-foreground">
                 Clean handover and full ownership transfer when you're ready to
                 scale in-house.
               </p>
@@ -78,9 +78,9 @@ export default function Stats() {
               highlight: true,
             },
             {
-              value: "$2B+",
-              title: "VALUE CREATED",
-              desc: "Backed by top-tier funds and strategic investors.",
+              value: "75%",
+              title: "IOT PROJECTS",
+              desc: "Built, shipped, and maintained in production.",
             },
             {
               value: "6–12 wk",
@@ -102,9 +102,9 @@ export default function Stats() {
               <div className={`h-full rounded-md p-3 border ${
                 item.highlight ? "border-accent/40 bg-accent/10" : "border-border bg-surface"
               }`}>
-                <h3 className="text-lg font-bold text-yellow-400 leading-none ">{item.value}</h3>
-                <p className="mt-0.5 text-[10px] tracking-wider text-muted-foreground">{item.title}</p>
-                <p className="mt-0.5 text-[12px] text-muted-foreground">{item.desc}</p>
+                <h3 className="text-lg font-bold my-3 text-yellow-400 leading-none  ">{item.value}</h3>
+                <p className="mt-1 text-xs mb-3 tracking-wider text-muted-foreground font-bold">{item.title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
               </div>
             </Reveal>
           ))}
