@@ -36,7 +36,7 @@ export default function Security() {
   return (
     <section
       id="security"
-      className="relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black px-6 py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-[#000814] via-[#001d3d] to-[#000814] px-6 py-32"
     >
       {/* Animated gradient overlays */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-purple-500/10 animate-pulse" />
@@ -50,6 +50,15 @@ export default function Security() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="relative mx-auto max-w-6xl text-center">
+        {/* ISO Logo */}
+        <Reveal y={4} as="div" className="flex justify-center ">
+          <img 
+            src="/iso.png" 
+            alt="ISO Certification" 
+            className="h-44 w-auto object-contain"
+          />
+        </Reveal>
+
         {/* Eyebrow with icon */}
         <Reveal
           y={6}

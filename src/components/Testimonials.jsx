@@ -47,7 +47,7 @@ export default function Testimonials() {
           {/* Large left image */}
           <Reveal y={16} className="row-span-2 overflow-hidden rounded-2xl">
             <img
-              src="/cer.png"
+              src="/sample.png"
               alt="Team collaborating"
               className="h-full w-full object-cover trans-500 hover:scale-[1.05]"
               loading="lazy"
